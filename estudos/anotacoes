@@ -1,0 +1,557 @@
+# 📚 Anotações do código
+
+## 1. Tkinter
+
+```python
+import tkinter as tk
+```
+
+Importa a biblioteca Tkinter e dá o apelido `tk`.
+
+O Tkinter é usado para criar a interface gráfica da calculadora.
+
+---
+
+## 2. Criando a janela
+
+```python
+janela = tk.Tk()
+```
+
+Cria a janela principal do programa.
+
+```python
+janela.title("Calculadora da Aline")
+```
+
+Define o título da janela.
+
+```python
+janela.geometry("350x500")
+```
+
+Define o tamanho inicial da janela.
+
+```python
+janela.minsize(300, 450)
+```
+
+Define o tamanho mínimo que a janela pode ter.
+
+```python
+janela.resizable(True, True)
+```
+
+Permite redimensionar a janela.
+
+```python
+janela.configure(bg="#18161f")
+```
+
+Define a cor de fundo da janela.
+
+---
+
+## 3. Variáveis
+
+```python
+expressao = ""
+```
+
+Guarda a conta que o usuário está digitando.
+
+```python
+resultado = tk.StringVar(value="0")
+```
+
+Cria uma variável do Tkinter que pode ser exibida e atualizada na tela.
+
+---
+
+## 4. Funções
+
+Uma função é um bloco de código criado para realizar uma tarefa.
+
+```python
+def atualizar_visor():
+```
+
+Cria uma função chamada `atualizar_visor`.
+
+```python
+resultado.set(expressao if expressao else "0")
+```
+
+Atualiza o que aparece no visor.
+
+Se existir uma expressão, mostra a expressão. Caso contrário, mostra `0`.
+
+---
+
+## 5. `global`
+
+```python
+global expressao
+```
+
+Permite que a função altere a variável `expressao` que foi criada fora dela.
+
+---
+
+## 6. Adicionar algo à expressão
+
+```python
+expressao += valor
+```
+
+Adiciona o novo valor ao final da expressão.
+
+Por exemplo:
+
+```text
+expressao = "12"
+valor = "+"
+```
+
+Resultado:
+
+```text
+"12+"
+```
+
+---
+
+## 7. Apagar
+
+```python
+expressao = expressao[:-1]
+```
+
+Remove o último caractere da expressão.
+
+Exemplo:
+
+```text
+"1234"
+```
+
+vira:
+
+```text
+"123"
+```
+
+---
+
+## 8. Listas
+
+```python
+tokens = []
+```
+
+Cria uma lista vazia.
+
+As listas podem guardar vários valores.
+
+Exemplo:
+
+```python
+numeros = [1, 2, 3, 4]
+```
+
+---
+
+## 9. `for`
+
+```python
+for caractere in conta:
+```
+
+Percorre cada caractere da conta.
+
+Se a conta for:
+
+```text
+12+5
+```
+
+o `for` passa por:
+
+```text
+1
+2
++
+5
+```
+
+---
+
+## 10. `if`, `elif` e `else`
+
+```python
+if condição:
+```
+
+Executa algo se a condição for verdadeira.
+
+```python
+elif condição:
+```
+
+Verifica outra condição caso a anterior não seja verdadeira.
+
+```python
+else:
+```
+
+Executa quando nenhuma das condições anteriores for verdadeira.
+
+---
+
+## 11. `isdigit()`
+
+```python
+caractere.isdigit()
+```
+
+Verifica se o caractere é um número.
+
+Por exemplo:
+
+```python
+"5".isdigit()
+```
+
+retorna `True`.
+
+---
+
+## 12. `append()`
+
+```python
+tokens.append(valor)
+```
+
+Adiciona um valor ao final de uma lista.
+
+Exemplo:
+
+```python
+numeros = []
+
+numeros.append(10)
+numeros.append(20)
+```
+
+Resultado:
+
+```python
+[10, 20]
+```
+
+---
+
+## 13. Dicionário
+
+```python
+prioridade = {
+    "+": 1,
+    "-": 1,
+    "*": 2,
+    "/": 2
+}
+```
+
+Um dicionário guarda informações no formato:
+
+```text
+chave → valor
+```
+
+Aqui usamos para definir a prioridade das operações.
+
+Multiplicação e divisão possuem prioridade maior que adição e subtração.
+
+---
+
+## 14. `pop()`
+
+```python
+operadores.pop()
+```
+
+Remove e retorna o último item de uma lista.
+
+É usado no código para pegar o operador que será executado.
+
+---
+
+## 15. `isinstance()`
+
+```python
+isinstance(token, float)
+```
+
+Verifica se um valor é de determinado tipo.
+
+Aqui verificamos se o `token` é um número decimal (`float`).
+
+---
+
+## 16. `replace()`
+
+```python
+expressao.replace("×", "*")
+```
+
+Substitui um texto por outro.
+
+Na calculadora:
+
+```text
+× → *
+÷ → /
+```
+
+Isso permite que o cálculo interno use os símbolos que o programa entende.
+
+---
+
+## 17. `try` e `except`
+
+```python
+try:
+    ...
+except:
+    ...
+```
+
+Servem para tratar erros que podem acontecer durante a execução.
+
+No nosso caso, usamos para evitar que a calculadora feche quando acontece algo como divisão por zero ou uma expressão inválida.
+
+---
+
+## 18. `ZeroDivisionError`
+
+```python
+except ZeroDivisionError:
+```
+
+Trata o erro de tentar dividir um número por zero.
+
+Exemplo:
+
+```text
+10 ÷ 0
+```
+
+---
+
+## 19. `lambda`
+
+```python
+lambda valor=texto: adicionar(valor)
+```
+
+Cria uma pequena função de forma rápida.
+
+Aqui usamos para fazer cada botão enviar seu próprio texto para a função `adicionar()`.
+
+---
+
+## 20. `enumerate()`
+
+```python
+for linha, botoes_linha in enumerate(botoes):
+```
+
+O `enumerate()` permite percorrer uma lista e receber também a posição do item.
+
+Exemplo:
+
+```python
+frutas = ["maçã", "banana", "uva"]
+
+for numero, fruta in enumerate(frutas):
+    print(numero, fruta)
+```
+
+Resultado:
+
+```text
+0 maçã
+1 banana
+2 uva
+```
+
+Na calculadora usamos isso para descobrir a linha e a coluna de cada botão.
+
+---
+
+## 21. `grid()`
+
+```python
+botao.grid(
+    row=linha,
+    column=coluna
+)
+```
+
+Organiza os elementos em linhas e colunas.
+
+É o que cria o formato de teclado da calculadora.
+
+---
+
+## 22. `Frame`
+
+```python
+frame_botoes = tk.Frame(janela)
+```
+
+Cria uma área dentro da janela para organizar outros elementos.
+
+Nesse projeto, usamos o `Frame` para colocar os botões.
+
+---
+
+## 23. `Button`
+
+```python
+tk.Button(...)
+```
+
+Cria um botão na interface.
+
+Algumas opções usadas:
+
+```python
+text=texto
+```
+
+Define o texto do botão.
+
+```python
+command=comando
+```
+
+Define o que acontece quando o botão é clicado.
+
+```python
+font=("Arial", 18, "bold")
+```
+
+Define fonte, tamanho e estilo.
+
+```python
+bg=cor
+```
+
+Define a cor do botão.
+
+```python
+fg="white"
+```
+
+Define a cor do texto.
+
+---
+
+## 24. `bind()`
+
+```python
+botao.bind("<Enter>", ...)
+```
+
+Permite detectar eventos.
+
+Usamos:
+
+```text
+<Enter>
+```
+
+quando o mouse entra no botão.
+
+```text
+<Leave>
+```
+
+quando o mouse sai do botão.
+
+Também usamos:
+
+```python
+janela.bind("<Key>", pressionar_tecla)
+```
+
+para detectar teclas pressionadas no teclado.
+
+---
+
+## 25. `pack()`
+
+```python
+visor.pack(
+    fill="both",
+    expand=True
+)
+```
+
+Organiza um elemento dentro da janela.
+
+Nesse projeto usamos `pack()` para posicionar o visor e o `Frame`.
+
+---
+
+## 26. `columnconfigure()` e `rowconfigure()`
+
+```python
+frame_botoes.columnconfigure(
+    coluna,
+    weight=1
+)
+```
+
+```python
+frame_botoes.rowconfigure(
+    linha,
+    weight=1
+)
+```
+
+Permitem que as linhas e colunas do `Frame` se ajustem quando a janela muda de tamanho.
+
+---
+
+## 27. `mainloop()`
+
+```python
+janela.mainloop()
+```
+
+Mantém a janela aberta e permite que o programa continue recebendo ações do usuário.
+
+Sem o `mainloop()`, a janela abriria e o programa terminaria.
+
+---
+
+## 💡 Coisas importantes que aprendi
+
+- `import` → importa uma biblioteca
+- `def` → cria uma função
+- `global` → permite alterar uma variável criada fora da função
+- `if / elif / else` → condições
+- `for` → repetição
+- `list` → lista de valores
+- `dict` → conjunto de chave e valor
+- `append()` → adiciona um item à lista
+- `pop()` → remove o último item
+- `enumerate()` → percorre uma lista mostrando também a posição
+- `lambda` → cria uma função pequena
+- `try / except` → tratamento de erros
+- `grid()` → organiza em linhas e colunas
+- `pack()` → organiza elementos na interface
+- `bind()` → detecta eventos
+- `mainloop()` → mantém a interface funcionando
