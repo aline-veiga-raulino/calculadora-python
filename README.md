@@ -51,3 +51,7 @@ python main.py
 - Interfaces gráficas com Tkinter
 - Tratamento de erros
 - Git e GitHub
+
+## 📷 Demonstração
+
+![Calculadora Python](./imagens/calculadora.png)
