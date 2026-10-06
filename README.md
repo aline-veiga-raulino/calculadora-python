@@ -54,4 +54,4 @@ python main.py
 
 ## 📷 Demonstração
 
-![Calculadora Python](./imagens/calculadora.png)
+<img src="./imagens/calculadora.png" width="350">
