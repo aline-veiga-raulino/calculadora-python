@@ -55,5 +55,5 @@ python main.py
 ## 📷 Demonstração
 
 <p align="center">
-  <img src="./imagens/calculadora.png" width="350">
+  <img src="./imagens/calculadora.png" width="300">
 </p>
