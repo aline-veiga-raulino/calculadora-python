@@ -54,4 +54,4 @@ python main.py
 
 ## 📷 Demonstração
 
-<img src="./imagens/calculadora.png" width="350">
+<img src="./imagens/calculadora.png" width="250">
